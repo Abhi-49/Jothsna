@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
+import { FaPlusCircle, FaMinusCircle, FaTrash } from 'react-icons/fa';
 
 export default function CartScreener() {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ export default function CartScreener() {
                         }
                         disabled={item.quantity === 1}
                       >
-                        <i className="fas fa-minus-circle"></i>
+                        <FaMinusCircle />
                       </Button>{' '}
                       <span>{item.quantity}</span>{' '}
                       <Button
@@ -83,7 +84,7 @@ export default function CartScreener() {
                         }
                         disabled={item.quantity === item.countInStock}
                       >
-                        <i className="fas fa-plus-circle"></i>
+                        <FaPlusCircle />
                       </Button>
                     </Col>
                     <Col md={3}>${item.price}</Col>
@@ -92,7 +93,7 @@ export default function CartScreener() {
                         variant="light"
                         onClick={() => removeItemHandler(item)}
                       >
-                        <i className="fas fa-trash"></i>
+                        <FaTrash />
                       </Button>
                     </Col>
                   </Row>
